@@ -16,5 +16,34 @@ public class Lotto {
         }
     }
 
-    // TODO: 추가 기능 구현
+    public int compare(Lotto result, int bonus) {
+        int count = 0;
+
+        for (int number : result.numbers) {
+            if (numbers.contains(number)) {
+                count++;
+            }
+        }
+
+        return matchingIndex(count, bonus);
+    }
+
+    public int matchingIndex(int count, int bonus) {
+        if(count == 3) {
+            return 0;
+        }
+        if(count == 4) {
+            return 1;
+        }
+        if(count == 5) {
+            if(numbers.contains(bonus)){
+                return 3;
+            }
+            return 2;
+        }
+        if(count == 6){
+            return 4;
+        }
+        return -1;
+    }
 }
