@@ -14,6 +14,7 @@ public class Controller {
         List<Integer> resultNumbers = inputResultNumber();
         int bonus = inputBonus(resultNumbers);
         ResultLotto result = new ResultLotto(resultNumbers, bonus);
+        result.makeResult(user);
     }
 
     private int inputPrice() {

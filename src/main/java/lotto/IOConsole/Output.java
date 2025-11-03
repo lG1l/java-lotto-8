@@ -11,7 +11,7 @@ public class Output {
         System.out.println(lotto);
     }
 
-    public static void result(List<Integer> result, float profit) {
+    public static void result(List<Integer> result, String profit) {
         System.out.printf(IOComment.PRINT_RESULT.getMessage(),
                 result.get(0), result.get(1), result.get(2), result.get(3), result.get(4), profit);
     }
