@@ -76,10 +76,11 @@ public class Parser {
     public static int parseBonus(String input, List<Integer> resultLotto){
         try{
             int bonus = Integer.parseInt(input);
-            resultLotto.add(bonus);
+            List<Integer> bonusPlusLotto = new ArrayList<Integer>(resultLotto);
+            bonusPlusLotto.add(bonus);
 
             checkOutOfRange(bonus);
-            checkDuplicate(resultLotto, ValidateComment.BONUS_NUMBER_ERROR.getMessage());
+            checkDuplicate(bonusPlusLotto, ValidateComment.BONUS_NUMBER_ERROR.getMessage());
 
             return bonus;
         }

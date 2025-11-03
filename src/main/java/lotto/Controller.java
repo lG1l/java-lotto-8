@@ -1,6 +1,5 @@
 package lotto;
 
-import lotto.Domain.Lotto;
 import lotto.Domain.UserLotto;
 import lotto.IOConsole.Input;
 import lotto.IOConsole.Output;
