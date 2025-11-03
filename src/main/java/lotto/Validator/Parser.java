@@ -1,6 +1,7 @@
 package lotto.Validator;
 
 import lotto.IOConsole.IOComment;
+import lotto.IOConsole.Input;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +45,7 @@ public class Parser {
         }
 
         checkLottoCount(resultLotto);
-        checkDuplicate(resultLotto);
+        checkDuplicate(resultLotto, ValidateComment.DUPLICATE_NUMBER_ERROR.getMessage());
 
         return resultLotto;
     }
@@ -61,14 +62,31 @@ public class Parser {
         }
     }
 
-    private static void checkDuplicate(List<Integer> lotto) {
+    private static void checkDuplicate(List<Integer> lotto, String output) {
         boolean[] usedNumbers = new boolean[ARRAY_MAX_SIZE];
 
         for (Integer num : lotto) {
             if (usedNumbers[num]) {
-                throw new IllegalArgumentException(ValidateComment.DUPLICATE_NUMBER_ERROR.getMessage());
+                throw new IllegalArgumentException(output);
             }
             usedNumbers[num] = true;
         }
     }
+
+    public static int parseBonus(String input, List<Integer> resultLotto){
+        try{
+            int bonus = Integer.parseInt(input);
+            resultLotto.add(bonus);
+
+            checkOutOfRange(bonus);
+            checkDuplicate(resultLotto, ValidateComment.BONUS_NUMBER_ERROR.getMessage());
+
+            return bonus;
+        }
+        catch (NumberFormatException e){
+            throw new IllegalArgumentException(ValidateComment.PARSE_INT_ERROR.getMessage());
+        }
+    }
+
+
 }
