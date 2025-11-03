@@ -7,6 +7,7 @@ import lotto.Validator.Parser;
 
 public class Controller {
     public void run(){
+        UserLotto user = new UserLotto(inputPrice());
     }
 
     private int inputPrice(){
