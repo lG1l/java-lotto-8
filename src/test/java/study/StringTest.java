@@ -32,14 +32,14 @@ public class StringTest {
     @DisplayName("요구사항 3 - 1")
     @Test
     void correctReturn3_1() {
-        assertThat(StudyString.requirements3("(1,2)",1))
+        assertThat(StudyString.requirements3("(1,2)", 1))
                 .isEqualTo('1');
     }
 
     @DisplayName("인덱스에서 벗어난 값을 인자로 넘기면 예외가 발생한다.")
     @Test
     void throwException() {
-        assertThatThrownBy(() -> StudyString.requirements3("(1,2)",6))
+        assertThatThrownBy(() -> StudyString.requirements3("(1,2)", 6))
                 .isInstanceOf(StringIndexOutOfBoundsException.class);
     }
 }

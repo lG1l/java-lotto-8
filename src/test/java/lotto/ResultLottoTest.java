@@ -7,19 +7,20 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomUniqueNumbersInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ResultLottoTest extends NsTest{
+public class ResultLottoTest extends NsTest {
     ResultLotto result;
     UserLotto user;
 
     @DisplayName("로또 당첨 결과를 올바르게 출력하는지에 대한 테스트")
     @Test
-    void resultTest(){
-        Lotto resultLotto = new Lotto(List.of(1,2,3,4,5,6));
+    void resultTest() {
+        Lotto resultLotto = new Lotto(List.of(1, 2, 3, 4, 5, 6));
         result = new ResultLotto(resultLotto, 7);
         assertRandomUniqueNumbersInRangeTest(
                 () -> {

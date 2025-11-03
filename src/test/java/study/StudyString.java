@@ -11,10 +11,10 @@ public class StudyString {
 
     public static String requirements2(String input) {
         int endIndex = input.length() - 1;
-        return input.substring(1,endIndex);
+        return input.substring(1, endIndex);
     }
 
-    public static char requirements3(String input, int index){
+    public static char requirements3(String input, int index) {
         return input.charAt(index);
     }
 }
