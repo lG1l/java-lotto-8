@@ -15,14 +15,14 @@ public class Lotto {
 
     private void validate(List<Integer> numbers) {
         Validator.checkLottoCount(numbers);
-        for(int number : numbers){
+        for (int number : numbers) {
             Validator.checkOutOfRange(number);
         }
         Validator.checkDuplicate(numbers, ValidateComment.DUPLICATE_NUMBER_ERROR.getMessage());
     }
 
-    public void checkBonus(int bonus){
-        if(numbers.contains(bonus)){
+    public void checkBonus(int bonus) {
+        if (numbers.contains(bonus)) {
             throw new IllegalArgumentException(ValidateComment.BONUS_NUMBER_ERROR.getMessage());
         }
     }
@@ -40,19 +40,19 @@ public class Lotto {
     }
 
     public int matchingIndex(int count, int bonus) {
-        if(count == 3) {
+        if (count == 3) {
             return 0;
         }
-        if(count == 4) {
+        if (count == 4) {
             return 1;
         }
-        if(count == 5) {
-            if(numbers.contains(bonus)){
+        if (count == 5) {
+            if (numbers.contains(bonus)) {
                 return 3;
             }
             return 2;
         }
-        if(count == 6){
+        if (count == 6) {
             return 4;
         }
         return -1;

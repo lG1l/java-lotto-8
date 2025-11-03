@@ -15,7 +15,6 @@ public class Controller {
         Lotto resultLotto = inputResultNumber();
         int bonus = inputBonus(resultLotto);
         ResultLotto result = new ResultLotto(resultLotto, bonus);
-
         result.makeResult(user);
     }
 

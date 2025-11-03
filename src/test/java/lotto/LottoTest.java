@@ -24,8 +24,6 @@ class LottoTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-
-    // TODO: 추가 기능 구현에 따른 테스트 코드 작성
     @DisplayName("로또 번호에 45보다 큰 수가 입력되면 예외가 발생한다.")
     @Test
     void createLottoByOverOfRange() {

@@ -27,7 +27,7 @@ public class UserLotto {
 
         for (Lotto lotto : userLottos) {
             int matchIndex = lotto.compare(resultLotto, bonus);
-            if(matchIndex == -1){
+            if (matchIndex == -1) {
                 continue;
             }
 

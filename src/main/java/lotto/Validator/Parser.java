@@ -25,15 +25,14 @@ public class Parser {
         return Validator.checkSplitLotto(splitLotto);
     }
 
-    public static int parseBonus(String input, Lotto resultLotto){
-        try{
+    public static int parseBonus(String input, Lotto resultLotto) {
+        try {
             int bonus = Integer.parseInt(input);
             Validator.checkOutOfRange(bonus);
             resultLotto.checkBonus(bonus);
 
             return bonus;
-        }
-        catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ValidateComment.PARSE_INT_ERROR.getMessage());
         }
     }
