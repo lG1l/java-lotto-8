@@ -3,8 +3,6 @@ package lotto.IOConsole;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Input {
-
-
     public static String requestLottoCount(){
         System.out.println(IOComment.ASK_LOTTO_COUNT.getMessage());
         return Console.readLine();
