@@ -1,5 +1,6 @@
 package lotto;
 
+import lotto.Domain.ResultLotto;
 import lotto.Domain.UserLotto;
 import lotto.IOConsole.Input;
 import lotto.IOConsole.Output;
@@ -12,6 +13,7 @@ public class Controller {
         UserLotto user = new UserLotto(inputPrice());
         List<Integer> resultNumbers = inputResultNumber();
         int bonus = inputBonus(resultNumbers);
+        ResultLotto result = new ResultLotto(resultNumbers, bonus);
     }
 
     private int inputPrice() {
