@@ -21,11 +21,14 @@ public class Validator {
         for (String number : input) {
             try {
                 int lotto = Integer.parseInt(number);
+                checkOutOfRange(lotto);
                 resultLotto.add(lotto);
             } catch (NumberFormatException e) {
                 throw new IllegalArgumentException(ValidateComment.PARSE_RESULT_LOTTO_ERROR.getMessage());
             }
         }
+
+        checkLottoCount(resultLotto);
 
         return resultLotto;
     }
