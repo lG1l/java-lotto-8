@@ -7,7 +7,7 @@ public class Parser {
         try {
             int price = Integer.parseInt(input);
             checkDivisionBy1000(price);
-            return price;
+            return price / LOTTO_PRICE;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ValidateComment.PARSE_INT_ERROR.getMessage());
         }
