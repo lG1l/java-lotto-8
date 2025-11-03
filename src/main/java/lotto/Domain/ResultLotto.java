@@ -11,8 +11,8 @@ public class ResultLotto {
     private final Lotto resultLotto;
     private final int bonus;
 
-    public ResultLotto(List<Integer> resultNumbers, int bonus) {
-        resultLotto = new Lotto(resultNumbers);
+    public ResultLotto(Lotto resultLotto, int bonus) {
+        this.resultLotto = resultLotto;
         this.bonus = bonus;
     }
 

@@ -1,5 +1,6 @@
 package lotto;
 
+import lotto.Domain.Lotto;
 import lotto.Domain.ResultLotto;
 import lotto.Domain.UserLotto;
 import lotto.IOConsole.Input;
@@ -10,34 +11,35 @@ import java.util.List;
 
 public class Controller {
     public void run() {
-        UserLotto user = new UserLotto(inputPrice());
-        List<Integer> resultNumbers = inputResultNumber();
-        int bonus = inputBonus(resultNumbers);
-        ResultLotto result = new ResultLotto(resultNumbers, bonus);
+        UserLotto user = inputPrice();
+        Lotto resultLotto = inputResultNumber();
+        int bonus = inputBonus(resultLotto);
+        ResultLotto result = new ResultLotto(resultLotto, bonus);
+
         result.makeResult(user);
     }
 
-    private int inputPrice() {
+    private UserLotto inputPrice() {
         while (true) {
             try {
-                return Parser.parsePurchasePrice(Input.requestLottoCount());
+                return new UserLotto(Parser.parsePurchasePrice(Input.requestLottoCount()));
             } catch (IllegalArgumentException e) {
                 Output.errorMessage(e.getMessage());
             }
         }
     }
 
-    private List<Integer> inputResultNumber() {
+    private Lotto inputResultNumber() {
         while (true) {
             try {
-                return Parser.parseResultLotto(Input.requestLottoResult());
+                return new Lotto(Parser.parseResultLotto(Input.requestLottoResult()));
             } catch (IllegalArgumentException e) {
                 Output.errorMessage(e.getMessage());
             }
         }
     }
 
-    private int inputBonus(List<Integer> resultLotto) {
+    private int inputBonus(Lotto resultLotto) {
         while (true) {
             try {
                 return Parser.parseBonus(Input.requestBonusNumber(), resultLotto);

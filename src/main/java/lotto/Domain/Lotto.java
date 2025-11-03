@@ -1,5 +1,8 @@
 package lotto.Domain;
 
+import lotto.Validator.ValidateComment;
+import lotto.Validator.Validator;
+
 import java.util.List;
 
 public class Lotto {
@@ -11,8 +14,16 @@ public class Lotto {
     }
 
     private void validate(List<Integer> numbers) {
-        if (numbers.size() != 6) {
-            throw new IllegalArgumentException("[ERROR] 로또 번호는 6개여야 합니다.");
+        Validator.checkLottoCount(numbers);
+        for(int number : numbers){
+            Validator.checkOutOfRange(number);
+        }
+        Validator.checkDuplicate(numbers, ValidateComment.DUPLICATE_NUMBER_ERROR.getMessage());
+    }
+
+    public void checkBonus(int bonus){
+        if(numbers.contains(bonus)){
+            throw new IllegalArgumentException(ValidateComment.BONUS_NUMBER_ERROR.getMessage());
         }
     }
 
