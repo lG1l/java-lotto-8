@@ -15,4 +15,8 @@ public class Output {
         System.out.printf(IOComment.PRINT_RESULT.getMessage(),
                 result.get(0), result.get(1), result.get(2), result.get(3), result.get(4), profit);
     }
+
+    public static void errorMessage(String message){
+        System.out.println(message);
+    }
 }
