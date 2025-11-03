@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class PurchasePriceTest {
+public class ParserTest {
     @DisplayName("구매 금액으로 문자를 입력할 경우 예외가 발생한다.")
     @Test
     void createInputCharacter() {
