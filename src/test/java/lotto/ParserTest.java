@@ -37,7 +37,7 @@ public class ParserTest {
     @DisplayName("정수가 아닌 문자를 입력할 경우 예외가 발생한다.")
     @Test
     void inputBonusCharacter() {
-        assertThatThrownBy(() -> Parser.parseBonus("a",new Lotto(List.of(1,2,3,4,5,6))))
+        assertThatThrownBy(() -> Parser.parseBonus("a", new Lotto(List.of(1, 2, 3, 4, 5, 6))))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 정수만 입력할 수 있습니다.\n");
     }
@@ -45,7 +45,7 @@ public class ParserTest {
     @DisplayName("45보다 큰 값을 입력한 경우 예외가 발생한다.")
     @Test
     void inputBonusOverOfRange() {
-        assertThatThrownBy(() -> Parser.parseBonus("46",new Lotto(List.of(1,2,3,4,5,6))))
+        assertThatThrownBy(() -> Parser.parseBonus("46", new Lotto(List.of(1, 2, 3, 4, 5, 6))))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 로또 번호는 1부터 45 사이의 숫자여야 합니다.\n");
     }
@@ -53,7 +53,7 @@ public class ParserTest {
     @DisplayName("1보다 작은 정수를 입력할 경우 예외가 발생한다.")
     @Test
     void inputBonusUnderOfRange() {
-        assertThatThrownBy(() -> Parser.parseBonus("0",new Lotto(List.of(1,2,3,4,5,6))))
+        assertThatThrownBy(() -> Parser.parseBonus("0", new Lotto(List.of(1, 2, 3, 4, 5, 6))))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 로또 번호는 1부터 45 사이의 숫자여야 합니다.\n");
     }
@@ -61,7 +61,7 @@ public class ParserTest {
     @DisplayName("당첨 번호에 있는 숫자를 보너스 번호로 입력하면 예외가 발생한다")
     @Test
     void inputBonusContainsResultLotto() {
-        assertThatThrownBy(() -> Parser.parseBonus("1",new Lotto(List.of(1,2,3,4,5,6))))
+        assertThatThrownBy(() -> Parser.parseBonus("1", new Lotto(List.of(1, 2, 3, 4, 5, 6))))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 당첨 번호에 없는 정수를 입력해야 합니다.\n");
     }
